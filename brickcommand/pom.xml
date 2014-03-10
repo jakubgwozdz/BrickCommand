@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.jgwozdz.brickcommand</groupId>
     <artifactId>brickcommand-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>BrickCommand Parent Project</name>
@@ -44,6 +43,7 @@
     <scm>
         <url>https://github.com/jakubgwozdz/BrickCommand</url>
         <connection>scm:git:https://github.com/jakubgwozdz/BrickCommand.git</connection>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
