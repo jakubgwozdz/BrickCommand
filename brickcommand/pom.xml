@@ -43,7 +43,7 @@
 
     <scm>
         <url>https://github.com/jakubgwozdz/BrickCommand</url>
-        <connection>scm:git:git://github.com/jakubgwozdz/BrickCommand.git</connection>
+        <connection>scm:git:https://github.com/jakubgwozdz/BrickCommand.git</connection>
     </scm>
 
     <developers>
@@ -93,6 +93,9 @@
                     <version>2.5</version>
                     <configuration>
                         <preparationGoals>clean verify</preparationGoals>
+                        <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <tagNameFormat>v@{project.version}</tagNameFormat>
                     </configuration>
                 </plugin>
             </plugins>
