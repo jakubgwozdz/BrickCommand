@@ -1,1 +1,16 @@
-This file was created by IntelliJ IDEA 12.1.6 for binding GitHub repository
+BrickCommand is a library for sending and receiving messages between a Java program
+and the Lego Mindstorms EV3 with the standard 1.03H firmware.
+
+The initial commit:
+ - can send only in-programs (mailbox) system messages
+ - uses a joystick as an input device (other may be developed if needed)
+ - uses ONLY Bluetooth messaging (USB and WiFi are planned)
+ - works ONLY under Windows (well, at least I haven't tested it in other environment)
+
+The library is modular, but it is still a draft and the API is not set in stone.
+
+As per licence, I will work on it later if I'll keep working on this project,
+but for sure it will be some free/open software licence, so feel free to use this code as you please,
+as long as you do not keep me accountable for any damage done by this libraries.
+
+The code uses Java 1.8 but not as much as I'd like (source and target version is 1.7, used java API is 1.8).
