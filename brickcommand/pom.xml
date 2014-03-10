@@ -41,6 +41,20 @@
         </dependencies>
     </dependencyManagement>
 
+    <scm>
+        <url>https://github.com/jakubgwozdz/BrickCommand</url>
+        <connection>scm:git:git://github.com/jakubgwozdz/BrickCommand.git</connection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>jakub.gwozdz@gmail.com</email>
+            <name>Jakub Gwóźdź</name>
+            <url>https://github.com/jakubgwozdz</url>
+            <id>jakubgwozdz</id>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -71,6 +85,14 @@
                         <showWarnings>true</showWarnings>
                         <showDeprecation>true</showDeprecation>
                         <!--<compilerArgument>-Xlint:deprecation</compilerArgument>-->
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <preparationGoals>clean verify</preparationGoals>
                     </configuration>
                 </plugin>
             </plugins>
