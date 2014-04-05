@@ -24,11 +24,13 @@ public class ExcavatorTranslator implements EV3MessageTranslator<ExcavatorEvent,
         put(GearHandleEvent.class, "GearHandle");
         put(GearLowerLAEvent.class, "GearLowerLA");
         put(GearUpperLAEvent.class, "GearUpperLA");
+        put(ResetAllEvent.class, "ResetAll");
     }});
 
     @Override
     public EV3Message[] convertEventToMessages(ExcavatorEvent event) {
         String command = commands.get(event.getClass());
+        System.out.println(command + (event.hasValue() ? "(" + event.getValue() + ")" : "()"));
         if (command == null) throw new UnsupportedOperationException("Darn! Unknown event " + event);
         MessagesBuilder builder = new MessagesBuilder().mailbox("Command").command(command);
         if (event.hasValue()) builder.mailbox("Value").value(event.getValue() * multipliers.get(event.getClass()));

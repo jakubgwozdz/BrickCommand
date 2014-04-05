@@ -8,6 +8,7 @@ class ComponentRegistration {
     private float previousValue;
     private float activationOnChange;
     private float activationOnValue;
+    private float nearZeroZero;
 
     ComponentRegistration(Component component) {
         this.component = component;
@@ -25,7 +26,7 @@ class ComponentRegistration {
 
     public JoystickEvent event() {
         float value = component.getPollData();
-        if (Math.abs(value) <= component.getDeadZone()) value = 0f;
+        if (Math.abs(value) <= nearZeroZero) value = 0f;
         if (Math.abs(value - previousValue) > activationOnChange) {
             previousValue = value;
             return new JoystickEvent(component.getIdentifier(), value);
@@ -36,5 +37,13 @@ class ComponentRegistration {
             return new JoystickEvent(component.getIdentifier(), value);
         }
         return null;
+    }
+
+    public void setNearZeroZero(float nearZeroZero) {
+        this.nearZeroZero = nearZeroZero;
+    }
+
+    public float getNearZeroZero() {
+        return nearZeroZero;
     }
 }

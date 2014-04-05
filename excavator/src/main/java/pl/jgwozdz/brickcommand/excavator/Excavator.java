@@ -34,6 +34,7 @@ public class Excavator extends Engine<ExcavatorEvent, ExcavatorEventResult> {
     private float oldFineTuneSpeed;
     private float actuatorSpeed;
     private float oldActuatorSpeed;
+    private boolean resetAll = false;
 
     public Excavator(BrickController input, Brick<ExcavatorEvent, ExcavatorEventResult> brick) {
         super(input, brick);
@@ -87,7 +88,12 @@ public class Excavator extends Engine<ExcavatorEvent, ExcavatorEventResult> {
             else if (id == _3 && value == 1f) gearChangeLowerLA();
             else if (id == _5 && value == 1f) gearChangeUpperLA();
             else if (id == Y && !fineTuning) setActuatorSpeed(value);
+            else if (id == _11 && value == 1f) triggerResetAll();
         }
+    }
+
+    public void triggerResetAll() {
+        resetAll = true;
     }
 
     public void gearChangeNeutral() {
@@ -140,6 +146,10 @@ public class Excavator extends Engine<ExcavatorEvent, ExcavatorEventResult> {
                     break;
             }
             oldGear = gear;
+        }
+        if (resetAll) {
+            leftovers.add(new ResetAllEvent());
+            resetAll = false;
         }
         return leftovers.poll();
     }

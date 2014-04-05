@@ -7,13 +7,16 @@ public class ComponentRegistrationBuilder {
 
     public ComponentRegistrationBuilder(Component component) {
         this.registration = new ComponentRegistration(component);
+        registration.setNearZeroZero(10f / 1024f);
     }
 
-    public void withActivationOnChange(float delta) {
+    public ComponentRegistrationBuilder withActivationOnChange(float delta) {
         registration.setActivationOnChange(delta);
+        return this;
     }
 
-    public void withActivationOnValue(float value) {
+    public ComponentRegistrationBuilder withActivationOnValue(float value) {
         registration.setActivationOnValue(value);
+        return this;
     }
 }
