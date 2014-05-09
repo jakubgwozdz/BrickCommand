@@ -1064,7 +1064,6 @@
         <module name="brickcommand-bluetooth" />
         <module name="brickcommand-engine" />
         <module name="brickcommand-joystick" />
-        <module name="car" />
         <module name="directMessenger" />
         <module name="engine" />
         <module name="excavator" />
@@ -1087,7 +1086,9 @@
       <module name="joystick" target="1.8" />
     </bytecodeTargetLevel>
   </component>
-  <component name="CopyrightManager" default="" />
+  <component name="CopyrightManager" default="">
+    <module2copyright />
+  </component>
   <component name="DependencyValidationManager">
     <scope name="java api" pattern="lib:java..*||lib:javax..*" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
@@ -1111,6 +1112,9 @@
     <option name="effort" value="default" />
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
+  </component>
+  <component name="GradleSettings">
+    <option name="gradleHome" value="C:/Program Files (x86)/Gradle/gradle-1.0-rc-3" />
   </component>
   <component name="InspectionProjectProfileManager">
     <profiles>
@@ -1139,7 +1143,6 @@
         <option value="$PROJECT_DIR$/brickcommand/pom.xml" />
         <option value="$PROJECT_DIR$/excavator/pom.xml" />
         <option value="$PROJECT_DIR$/directMessenger/pom.xml" />
-        <option value="$PROJECT_DIR$/car/pom.xml" />
       </list>
     </option>
   </component>
@@ -1264,8 +1267,15 @@
       </item>
     </group>
   </component>
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value />
+    </option>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (1)" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BrickSteer/BrickSteer.iml" filepath="$PROJECT_DIR$/BrickSteer/BrickSteer.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/api/api.iml" filepath="$PROJECT_DIR$/brickcommand/api/api.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/bluetooth/bluetooth.iml" filepath="$PROJECT_DIR$/brickcommand/bluetooth/bluetooth.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/brick/brick.iml" filepath="$PROJECT_DIR$/brickcommand/brick/brick.iml" />
