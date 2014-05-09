@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BrickSteer</string>
+    <string name="Status">New Text</string>
+    <string name="Title">Hello World, MainBrickSteer</string>
+</resources>
