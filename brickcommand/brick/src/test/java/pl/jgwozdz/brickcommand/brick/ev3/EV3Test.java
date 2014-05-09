@@ -28,7 +28,7 @@ public class EV3Test {
         when(translator.convertEventToMessages(any(TestEvent.class))).thenReturn(new EV3Message[]{m1, m2});
 
         TestResult mr = new TestResult();
-        when(translator.convertMessageToResult(any(EV3Message.class))).thenReturn(mr);
+        when(translator.convertMessageToResult(any(EV3Message.class), any(TestEvent.class))).thenReturn(mr);
 
         EV3<TestEvent, TestResult> ev3 = new EV3<>(device, translator);
         TestResult result = ev3.process(new TestEvent());

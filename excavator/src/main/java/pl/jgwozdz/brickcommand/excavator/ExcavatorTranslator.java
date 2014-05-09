@@ -38,7 +38,7 @@ public class ExcavatorTranslator implements EV3MessageTranslator<ExcavatorEvent,
     }
 
     @Override
-    public ExcavatorEventResult convertMessageToResult(EV3Message ev3Message) {
+    public ExcavatorEventResult convertMessageToResult(EV3Message ev3Message, ExcavatorEvent requestEvent) {
         return new ExcavatorEventResult();
     }
 }

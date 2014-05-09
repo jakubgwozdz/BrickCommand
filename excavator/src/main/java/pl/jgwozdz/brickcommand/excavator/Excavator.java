@@ -69,7 +69,7 @@ public class Excavator extends Engine<ExcavatorEvent, ExcavatorEventResult> {
     }
 
     @Override
-    protected void process(ControllerEvent event) {
+    protected void processControllerEvent(ControllerEvent event) {
         if (event instanceof JoystickEvent) {
             JoystickEvent joystickEvent = (JoystickEvent) event;
             Component.Identifier id = joystickEvent.componentId;

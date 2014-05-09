@@ -11,20 +11,20 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class Engine<T extends BrickEvent, S extends BrickEventResult> {
+public abstract class Engine<E extends BrickEvent, R extends BrickEventResult> {
 
     private final Set<? extends BrickController> inputs;
     private final Set<InputThread> inputThreads = new HashSet<>();
-    private final Brick<T, S> brick;
+    private final Brick<E, R> brick;
     private Thread brickThread;
     private final Object synchro = new Object();
 
-    public Engine(Set<? extends BrickController> inputs, Brick<T, S> brick) {
+    public Engine(Set<? extends BrickController> inputs, Brick<E, R> brick) {
         this.brick = brick;
         this.inputs = new HashSet<>(inputs);
     }
 
-    public Engine(BrickController input, Brick<T, S> brick) {
+    public Engine(BrickController input, Brick<E, R> brick) {
         this(Collections.singleton(input), brick);
     }
 
@@ -74,13 +74,13 @@ public abstract class Engine<T extends BrickEvent, S extends BrickEventResult> {
         }
     }
 
-    protected abstract void process(ControllerEvent event);
+    protected abstract void processControllerEvent(ControllerEvent event);
 
-    protected abstract T getNextBrickEvent();
+    protected abstract E getNextBrickEvent();
 
-    protected abstract void update(S eventResult, T sentEvent);
+    protected abstract void update(R eventResult, E sentEvent);
 
-    private class InputThread extends Thread {
+    private final class InputThread extends Thread {
         private final BrickController controller;
 
         public InputThread(BrickController controller) {
@@ -94,7 +94,7 @@ public abstract class Engine<T extends BrickEvent, S extends BrickEventResult> {
                 try {
                     ControllerEvent event = controller.waitForNextData();
                     synchronized (synchro) {
-                        process(event);
+                        processControllerEvent(event);
                     }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -107,9 +107,9 @@ public abstract class Engine<T extends BrickEvent, S extends BrickEventResult> {
 
     private final class OutputThread extends Thread {
 
-        private final Brick<T, S> output;
+        private final Brick<E, R> output;
 
-        private OutputThread(final Brick<T, S> output) {
+        private OutputThread(final Brick<E, R> output) {
             this.output = output;
         }
 
@@ -118,7 +118,7 @@ public abstract class Engine<T extends BrickEvent, S extends BrickEventResult> {
             System.out.println("starting consuming thread");
             while (!Thread.interrupted()) {
                 try {
-                    T event;
+                    E event;
                     synchronized (synchro) {
                         event = getNextBrickEvent();
                     }
@@ -126,7 +126,7 @@ public abstract class Engine<T extends BrickEvent, S extends BrickEventResult> {
                         Thread.sleep(20);
                     } else {
 //                            System.out.println(event);
-                        S result = output.process(event);
+                        R result = output.process(event);
                         synchronized (synchro) {
                             update(result, event);
                         }

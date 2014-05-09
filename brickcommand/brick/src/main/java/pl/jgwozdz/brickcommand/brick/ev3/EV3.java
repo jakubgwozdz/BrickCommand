@@ -36,7 +36,7 @@ public class EV3<T extends BrickEvent, S extends BrickEventResult> implements Br
     public S process(T event) {
         EV3Message[] messages = translator.convertEventToMessages(event);
         EV3Message resultMessage = sendCommand(messages);
-        S result = translator.convertMessageToResult(resultMessage);
+        S result = translator.convertMessageToResult(resultMessage, event);
         return result;
     }
 

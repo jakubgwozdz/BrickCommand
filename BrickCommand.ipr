@@ -1064,6 +1064,7 @@
         <module name="brickcommand-bluetooth" />
         <module name="brickcommand-engine" />
         <module name="brickcommand-joystick" />
+        <module name="car" />
         <module name="directMessenger" />
         <module name="engine" />
         <module name="excavator" />
@@ -1079,14 +1080,16 @@
       <module name="brickcommand-engine" target="1.7" />
       <module name="brickcommand-joystick" target="1.7" />
       <module name="brickcommand-parent" target="1.7" />
+      <module name="car" target="1.8" />
       <module name="directMessenger" target="1.7" />
       <module name="engine" target="1.8" />
-      <module name="excavator" target="1.7" />
+      <module name="excavator" target="1.8" />
       <module name="joystick" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
+    <scope name="java api" pattern="lib:java..*||lib:javax..*" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
@@ -1096,6 +1099,7 @@
     <file url="file://$PROJECT_DIR$/brickcommand/brick" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/brickcommand/engine" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/brickcommand/joystick" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/car" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/directMessenger" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/excavator" charset="UTF-8" />
   </component>
@@ -1135,6 +1139,7 @@
         <option value="$PROJECT_DIR$/brickcommand/pom.xml" />
         <option value="$PROJECT_DIR$/excavator/pom.xml" />
         <option value="$PROJECT_DIR$/directMessenger/pom.xml" />
+        <option value="$PROJECT_DIR$/car/pom.xml" />
       </list>
     </option>
   </component>
@@ -1265,6 +1270,7 @@
       <module fileurl="file://$PROJECT_DIR$/brickcommand/bluetooth/bluetooth.iml" filepath="$PROJECT_DIR$/brickcommand/bluetooth/bluetooth.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/brick/brick.iml" filepath="$PROJECT_DIR$/brickcommand/brick/brick.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/brickcommand-parent.iml" filepath="$PROJECT_DIR$/brickcommand/brickcommand-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/car/car.iml" filepath="$PROJECT_DIR$/car/car.iml" />
       <module fileurl="file://$PROJECT_DIR$/directMessenger/directMessenger.iml" filepath="$PROJECT_DIR$/directMessenger/directMessenger.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/engine/engine.iml" filepath="$PROJECT_DIR$/brickcommand/engine/engine.iml" />
       <module fileurl="file://$PROJECT_DIR$/excavator/excavator.iml" filepath="$PROJECT_DIR$/excavator/excavator.iml" />
@@ -1392,39 +1398,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.0/bluetooth-1.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: pl.jgwozdz.brickcommand:bluetooth:1.1-SNAPSHOT">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.1-SNAPSHOT/bluetooth-1.1-SNAPSHOT.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.1-SNAPSHOT/bluetooth-1.1-SNAPSHOT-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.1-SNAPSHOT/bluetooth-1.1-SNAPSHOT-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: pl.jgwozdz.brickcommand:engine:1.1-SNAPSHOT">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/engine/1.1-SNAPSHOT/engine-1.1-SNAPSHOT.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/engine/1.1-SNAPSHOT/engine-1.1-SNAPSHOT-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/engine/1.1-SNAPSHOT/engine-1.1-SNAPSHOT-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: pl.jgwozdz.brickcommand:joystick:1.1-SNAPSHOT">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/joystick/1.1-SNAPSHOT/joystick-1.1-SNAPSHOT.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/joystick/1.1-SNAPSHOT/joystick-1.1-SNAPSHOT-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/joystick/1.1-SNAPSHOT/joystick-1.1-SNAPSHOT-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

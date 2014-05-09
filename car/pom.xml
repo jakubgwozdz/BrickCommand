@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.jgwozdz.brickcommand</groupId>
-    <artifactId>program-excavator</artifactId>
+    <artifactId>program-car</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -54,5 +54,6 @@
             </plugins>
         </pluginManagement>
     </build>
+
 
 </project>

@@ -11,7 +11,7 @@ import pl.jgwozdz.brickcommand.brick.BrickEventResult;
  */
 public interface EV3MessageTranslator<T extends BrickEvent, S extends BrickEventResult> {
 
-    S convertMessageToResult(EV3Message ev3Message);
+    S convertMessageToResult(EV3Message ev3Message, T requestEvent);
 
     EV3Message[] convertEventToMessages(T event);
 
