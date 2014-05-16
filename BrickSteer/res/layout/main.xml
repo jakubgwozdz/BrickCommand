@@ -4,14 +4,33 @@
               android:orientation="vertical">
     <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/Title"/>
 
-    <view
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            class="pl.jgwozdz.brickcommand.android.SteeringView"
-            android:id="@+id/view"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"/>
+            android:layout_height="200dp"
+            android:weightSum="1"
+            android:focusable="false"
+            android:clickable="false">
 
-    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/Status" android:id="@+id/textView"/>
+        <view
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                class="pl.jgwozdz.brickcommand.android.VerticalSlider"
+                android:id="@+id/speed"
+                android:layout_column="0"
+                android:layout_weight=".5"
+                android:background="#564b32"/>
+
+        <view
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                class="pl.jgwozdz.brickcommand.android.VerticalSlider"
+                android:id="@+id/angle"
+                android:layout_column="1"
+                android:layout_weight=".5"
+                android:background="#560908"/>
+    </LinearLayout>
+
+    <TextView android:layout_width="fill_parent" android:layout_height="match_parent" android:text="@string/Status" android:id="@+id/textView"/>
 </LinearLayout>
 
