@@ -19,7 +19,10 @@
                 android:id="@+id/speed"
                 android:layout_column="0"
                 android:layout_weight=".5"
-                android:background="#564b32"/>
+                android:background="#564b32"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
         <view
                 android:layout_width="wrap_content"
@@ -28,7 +31,10 @@
                 android:id="@+id/angle"
                 android:layout_column="1"
                 android:layout_weight=".5"
-                android:background="#560908"/>
+                android:background="#560908"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
     </LinearLayout>
 
     <TextView android:layout_width="fill_parent" android:layout_height="match_parent" android:text="@string/Status" android:id="@+id/textView"/>
