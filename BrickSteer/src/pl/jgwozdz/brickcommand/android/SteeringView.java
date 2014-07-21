@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -49,6 +50,12 @@ public class SteeringView extends SurfaceView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setColor(0x884488CC);
-        canvas.drawARGB(100,100,200,250);
+        canvas.drawARGB(100, 100, 200, 250);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+//        ((TextView)getRootView().findViewById(R.id.status)).setText(""+event);
+        return true;
     }
 }
