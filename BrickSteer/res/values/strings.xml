@@ -3,4 +3,6 @@
     <string name="app_name">BrickSteer</string>
     <string name="Status">New Text</string>
     <string name="Title">Hello World, MainBrickSteer</string>
+    <string name="Connect">Connect</string>
+    <string name="notConnected">Not Connected</string>
 </resources>

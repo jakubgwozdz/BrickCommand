@@ -12,13 +12,14 @@ import android.view.View;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.view.MotionEvent.ACTION_UP;
 import static java.lang.Math.*;
 
 public class AnalogPad extends View {
 
     private Paint paint = new Paint();
     private Rect clipRect = new Rect();
-    private int lastAction = MotionEvent.ACTION_UP;
+    private int lastAction = ACTION_UP;
     private float radius = 10;
     private float positionX = 0;
     private float positionY = 0;
@@ -70,27 +71,28 @@ public class AnalogPad extends View {
         Log.i("touch", "" + event);
 
         setPosToScreenValue(event.getX(), event.getY());
+        int action = event.getAction();
 
-        if (lastAction != MotionEvent.ACTION_UP && event.getAction() == MotionEvent.ACTION_UP) {
+        if (lastAction != ACTION_UP && action == ACTION_UP) {
             decayTask = new DecayTask();
             decayTimer.schedule(decayTask, 0, 50);
         }
-        if (lastAction == MotionEvent.ACTION_UP && event.getAction() != MotionEvent.ACTION_UP) {
+        if (lastAction == ACTION_UP && action != ACTION_UP) {
             if (decayTask != null) {
                 decayTask.cancel();
                 decayTask = null;
             }
         }
-        lastAction = event.getAction();
+        lastAction = action;
 
         invalidate();
         return true;
     }
 
     private void setPosToScreenValue(float x, float y) {
-        float posX = (x - radius) / radius;
+        float posX = (x - clipRect.exactCenterX()) / radius;
         posX = max(-1, min(1, posX));
-        float posY = (y - radius) / radius;
+        float posY = (y - clipRect.exactCenterY()) / radius;
         posY = max(-1, min(1, posY));
         setPosition(posX, posY);
     }
@@ -107,7 +109,7 @@ public class AnalogPad extends View {
         }
 
         private float decay(float v) {
-            return signum(v) * max(abs(v) * 0.95f - 0.005f, 0);
+            return signum(v) * max(abs(v) * 0.65f - 0.01f, 0);
         }
     }
 }

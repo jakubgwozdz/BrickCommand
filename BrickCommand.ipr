@@ -1086,9 +1086,7 @@
       <module name="joystick" target="1.8" />
     </bytecodeTargetLevel>
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright />
-  </component>
+  <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
     <scope name="java api" pattern="lib:java..*||lib:javax..*" />
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
@@ -1112,9 +1110,6 @@
     <option name="effort" value="default" />
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
-  </component>
-  <component name="GradleSettings">
-    <option name="gradleHome" value="C:/Program Files (x86)/Gradle/gradle-1.0-rc-3" />
   </component>
   <component name="InspectionProjectProfileManager">
     <profiles>
@@ -1291,7 +1286,7 @@
       <module fileurl="file://$PROJECT_DIR$/brickcommand/joystick/joystick.iml" filepath="$PROJECT_DIR$/brickcommand/joystick/joystick.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="Android 2.3.3 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="QAPlugAnalysisUIOptions">

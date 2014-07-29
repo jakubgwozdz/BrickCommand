@@ -12,16 +12,33 @@
             android:focusable="false"
             android:clickable="false">
 
-        <view
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                class="pl.jgwozdz.brickcommand.android.VerticalSlider"
-                android:id="@+id/speed"
-                android:layout_weight=".5"
-                android:background="#564b32"
-                android:clickable="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_weight=".5">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Connect"
+                        android:id="@+id/connectBtn" android:clickable="true"
+                        style="@android:style/Widget.Button.Small"/>
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/notConnected"
+                        android:id="@+id/connectionInfo"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+            </LinearLayout>
+        </LinearLayout>
 
         <view android:layout_width="wrap_content"
               android:layout_height="fill_parent"
@@ -30,6 +47,6 @@
     </LinearLayout>
 
     <TextView android:layout_width="fill_parent" android:layout_height="match_parent" android:text="@string/Status"
-              android:id="@+id/textView"/>
+              android:id="@+id/textView" android:background="#240905"/>
 </LinearLayout>
 
