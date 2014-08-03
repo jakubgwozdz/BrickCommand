@@ -38,7 +38,7 @@ public class AnalogPad extends View {
     public void setPosition(float positionX, float positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
-        Log.i("position", "x=" + positionX + "; y=" + positionY);
+        Log.d("position", "x=" + positionX + "; y=" + positionY);
     }
 
     public AnalogPad(Context context, AttributeSet attrs) {
@@ -68,7 +68,7 @@ public class AnalogPad extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event == null) return false;
-        Log.i("touch", "" + event);
+        Log.d("touch", "" + event);
 
         setPosToScreenValue(event.getX(), event.getY());
         int action = event.getAction();

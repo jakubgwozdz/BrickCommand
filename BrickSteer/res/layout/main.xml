@@ -25,7 +25,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/Connect"
                         android:id="@+id/connectBtn" android:clickable="true"
-                        style="@android:style/Widget.Button.Small"/>
+                        style="@android:style/Widget.Button.Small" android:onClick="connect"/>
                 <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
