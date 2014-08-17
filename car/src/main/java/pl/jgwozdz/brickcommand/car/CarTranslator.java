@@ -2,7 +2,7 @@ package pl.jgwozdz.brickcommand.car;
 
 import pl.jgwozdz.brickcommand.brick.ev3.EV3Command;
 import pl.jgwozdz.brickcommand.brick.ev3.EV3CommandTranslator;
-import pl.jgwozdz.brickcommand.brick.ev3.MessagesBuilder;
+import pl.jgwozdz.brickcommand.brick.ev3.MailboxCommandsBuilder;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class CarTranslator implements EV3CommandTranslator<CarEvent, CarEvent> {
         String command = commands.get(event.getClass());
         System.out.println(command + (event.hasValue() ? "(" + event.getValue() + ")" : "()"));
         if (command == null) throw new UnsupportedOperationException("Darn! Unknown event " + event);
-        MessagesBuilder builder = new MessagesBuilder().mailbox("Command").command(command);
+        MailboxCommandsBuilder builder = new MailboxCommandsBuilder().mailbox("Command").command(command);
         if (event.hasValue()) builder.mailbox("Value").value(event.getValue());
         return builder.toArray();
     }

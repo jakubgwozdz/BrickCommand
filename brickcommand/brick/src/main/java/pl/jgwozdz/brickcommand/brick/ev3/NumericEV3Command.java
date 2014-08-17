@@ -32,7 +32,7 @@ public class NumericEV3Command extends MailboxEV3Command {
     }
 
     @Override
-    public EV3CommandType getType() {
-        return EV3CommandType.NumericMsg;
+    public EV3MailboxCommandType getType() {
+        return EV3MailboxCommandType.NumericMsg;
     }
 }

@@ -29,7 +29,7 @@ public class TextEV3Command extends MailboxEV3Command {
     }
 
     @Override
-    public EV3CommandType getType() {
-        return EV3CommandType.TextMsg;
+    public EV3MailboxCommandType getType() {
+        return EV3MailboxCommandType.TextMsg;
     }
 }

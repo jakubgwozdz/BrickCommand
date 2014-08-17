@@ -12,6 +12,7 @@ public class EV3<T extends BrickEvent, S extends BrickEventResult> implements Br
 
     private final Device device;
     private final EV3CommandTranslator<T, S> translator;
+    private CommandParser commandParser = new CommandParser();
 
     public EV3(Device device/*, EV3MessageFormatter messageFormatter*/, EV3CommandTranslator<T, S> translator) {
         this.device = device;
@@ -22,14 +23,14 @@ public class EV3<T extends BrickEvent, S extends BrickEventResult> implements Br
         for (EV3Command message : messages) {
             device.writeMessageBytes(message.getAllBytes());
         }
-        return readIncomingMessage();
+        return readIncomingCommand();
     }
 
-    private EV3Command readIncomingMessage() {
+    private EV3Command readIncomingCommand() {
         byte[] sizeBytes = device.readMessageBytes(2);
         short dataLen = ByteBuffer.wrap(sizeBytes).order(ByteOrder.LITTLE_ENDIAN).getShort();
         byte[] dataBytes = device.readMessageBytes(dataLen);
-        return new IncommingEV3Command(dataBytes);
+        return commandParser.parse(dataBytes);
     }
 
     @Override

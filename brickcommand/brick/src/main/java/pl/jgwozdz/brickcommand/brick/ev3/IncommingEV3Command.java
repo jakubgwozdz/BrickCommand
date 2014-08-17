@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-public class IncommingEV3Command implements EV3Command {
+public class IncommingEV3Command extends MailboxEV3Command {
 
     private final byte[] dataBytes;
     private byte[] allBytes;
@@ -17,6 +17,7 @@ public class IncommingEV3Command implements EV3Command {
     private byte[] secretBytes;
 
     public IncommingEV3Command(byte[] dataBytes) {
+        super(null);
         this.dataBytes = Arrays.copyOf(dataBytes, dataBytes.length);
     }
 
@@ -91,7 +92,7 @@ public class IncommingEV3Command implements EV3Command {
     }
 
     @Override
-    public EV3CommandType getType() {
-        return EV3CommandType.IncomingMsg;
+    public EV3MailboxCommandType getType() {
+        return EV3MailboxCommandType.IncomingMsg;
     }
 }
