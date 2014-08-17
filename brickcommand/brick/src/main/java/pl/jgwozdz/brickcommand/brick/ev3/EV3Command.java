@@ -3,7 +3,7 @@ package pl.jgwozdz.brickcommand.brick.ev3;
 /**
  * Common interface for all EV3 Messages (regular, factory firmware and LabView projects)
  */
-public interface EV3Message {
+public interface EV3Command {
 
     /**
      * @return a number carried in this messages or Float.NaN if it is a String.
@@ -12,8 +12,8 @@ public interface EV3Message {
 
     /**
      * @return a text carried in this messages.
-     *         If it is an outcoming NumericMessage, returns it's string representation,
-     *         if an incoming NumericMessage, only String representation of bytes used to encode a float.
+     * If it is an outcoming NumericMessage, returns it's string representation,
+     * if an incoming NumericMessage, only String representation of bytes used to encode a float.
      */
     String getTextData();
 
@@ -35,5 +35,5 @@ public interface EV3Message {
     /**
      * @return the type of the message
      */
-    EV3MessageType getType();
+    EV3CommandType getType();
 }

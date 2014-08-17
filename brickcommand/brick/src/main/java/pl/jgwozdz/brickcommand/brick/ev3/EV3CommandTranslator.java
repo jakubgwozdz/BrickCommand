@@ -9,10 +9,10 @@ import pl.jgwozdz.brickcommand.brick.BrickEventResult;
  * @param <T> the event type
  * @param <S> the result type
  */
-public interface EV3MessageTranslator<T extends BrickEvent, S extends BrickEventResult> {
+public interface EV3CommandTranslator<T extends BrickEvent, S extends BrickEventResult> {
 
-    S convertMessageToResult(EV3Message ev3Message, T requestEvent);
+    S convertMessageToResult(EV3Command ev3Command, T requestEvent);
 
-    EV3Message[] convertEventToMessages(T event);
+    EV3Command[] convertEventToMessages(T event);
 
 }

@@ -1,11 +1,11 @@
 package pl.jgwozdz.brickcommand.brick.ev3;
 
-public class TextEV3Message extends AbstractEV3Message {
+public class TextEV3Command extends MailboxEV3Command {
 
     private final String textData;
     private byte[] payloadBytes;
 
-    public TextEV3Message(String mailboxName, String textData) {
+    public TextEV3Command(String mailboxName, String textData) {
         super(mailboxName);
         this.textData = textData;
     }
@@ -29,7 +29,7 @@ public class TextEV3Message extends AbstractEV3Message {
     }
 
     @Override
-    public EV3MessageType getType() {
-        return EV3MessageType.TextMsg;
+    public EV3CommandType getType() {
+        return EV3CommandType.TextMsg;
     }
 }

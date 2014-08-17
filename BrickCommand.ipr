@@ -1071,19 +1071,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api" target="1.8" />
-      <module name="bluetooth" target="1.8" />
-      <module name="brick" target="1.8" />
-      <module name="brickcommand-api" target="1.7" />
-      <module name="brickcommand-bluetooth" target="1.7" />
-      <module name="brickcommand-engine" target="1.7" />
-      <module name="brickcommand-joystick" target="1.7" />
       <module name="brickcommand-parent" target="1.7" />
-      <module name="car" target="1.8" />
-      <module name="directMessenger" target="1.7" />
-      <module name="engine" target="1.8" />
-      <module name="excavator" target="1.8" />
-      <module name="joystick" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
@@ -1396,17 +1384,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: pl.jgwozdz.brickcommand:bluetooth:1.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.0/bluetooth-1.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.0/bluetooth-1.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/pl/jgwozdz/brickcommand/bluetooth/1.0/bluetooth-1.0-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

@@ -3,9 +3,6 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
-        <proGuardCfgFiles>
-          <file>file://C:/Java/android-sdk/tools/proguard/proguard-android.txt</file>
-        </proGuardCfgFiles>
         <option name="UPDATE_PROPERTY_FILES" value="true" />
       </configuration>
     </facet>

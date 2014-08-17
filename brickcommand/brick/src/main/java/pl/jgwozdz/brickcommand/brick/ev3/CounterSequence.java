@@ -20,7 +20,7 @@ public class CounterSequence {
     }
 
     /**
-     * Singleton used in {@link pl.jgwozdz.brickcommand.brick.ev3.AbstractEV3Message}.
+     * Singleton used in {@link MailboxEV3Command}.
      *
      * @return singleton
      */

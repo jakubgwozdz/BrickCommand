@@ -8,15 +8,15 @@ import java.nio.charset.StandardCharsets;
 
 import static org.hamcrest.CoreMatchers.*;
 
-public class TextEV3MessageTest {
+public class TextEV3CommandTest {
     @Test
     public void testFormattingAndParsing() throws Exception {
-        EV3Message input = new TextEV3Message("Mailbox 1", "This is a message");
+        EV3Command input = new TextEV3Command("Mailbox 1", "This is a message");
         ByteBuffer buffer = ByteBuffer.wrap(input.getAllBytes());
         short len = buffer.order(ByteOrder.LITTLE_ENDIAN).getShort();
         byte[] data = new byte[len];
         buffer.get(data);
-        EV3Message output = new IncommingEV3Message(data);
+        EV3Command output = new IncommingEV3Command(data);
         Assert.assertThat(output.getMailboxName(), is("Mailbox 1"));
         Assert.assertThat(output.getTextData(), is("This is a message"));
     }
@@ -24,7 +24,7 @@ public class TextEV3MessageTest {
     @Test
     public void testOldGunMethodCompatibility() throws Exception {
         CounterSequence.getDefault().reset();
-        byte[] newMessage = new TextEV3Message("Mailbox 1", "This is a message").getAllBytes();
+        byte[] newMessage = new TextEV3Command("Mailbox 1", "This is a message").getAllBytes();
         byte[] oldMessage = new OldEV3MessageBuilder().createMessage("Mailbox 1", "This is a message");
         Assert.assertArrayEquals(oldMessage, newMessage);
     }

@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-public class IncommingEV3Message implements EV3Message {
+public class IncommingEV3Command implements EV3Command {
 
     private final byte[] dataBytes;
     private byte[] allBytes;
@@ -16,7 +16,7 @@ public class IncommingEV3Message implements EV3Message {
     private short counter;
     private byte[] secretBytes;
 
-    public IncommingEV3Message(byte[] dataBytes) {
+    public IncommingEV3Command(byte[] dataBytes) {
         this.dataBytes = Arrays.copyOf(dataBytes, dataBytes.length);
     }
 
@@ -91,7 +91,7 @@ public class IncommingEV3Message implements EV3Message {
     }
 
     @Override
-    public EV3MessageType getType() {
-        return EV3MessageType.IncomingMsg;
+    public EV3CommandType getType() {
+        return EV3CommandType.IncomingMsg;
     }
 }

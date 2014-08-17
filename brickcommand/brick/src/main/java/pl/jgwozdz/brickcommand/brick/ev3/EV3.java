@@ -11,31 +11,31 @@ import java.nio.ByteOrder;
 public class EV3<T extends BrickEvent, S extends BrickEventResult> implements Brick<T, S> {
 
     private final Device device;
-    private final EV3MessageTranslator<T, S> translator;
+    private final EV3CommandTranslator<T, S> translator;
 
-    public EV3(Device device/*, EV3MessageFormatter messageFormatter*/, EV3MessageTranslator<T, S> translator) {
+    public EV3(Device device/*, EV3MessageFormatter messageFormatter*/, EV3CommandTranslator<T, S> translator) {
         this.device = device;
         this.translator = translator;
     }
 
-    private EV3Message sendCommand(EV3Message... messages) {
-        for (EV3Message message : messages) {
+    private EV3Command sendCommand(EV3Command... messages) {
+        for (EV3Command message : messages) {
             device.writeMessageBytes(message.getAllBytes());
         }
         return readIncomingMessage();
     }
 
-    private EV3Message readIncomingMessage() {
+    private EV3Command readIncomingMessage() {
         byte[] sizeBytes = device.readMessageBytes(2);
         short dataLen = ByteBuffer.wrap(sizeBytes).order(ByteOrder.LITTLE_ENDIAN).getShort();
         byte[] dataBytes = device.readMessageBytes(dataLen);
-        return new IncommingEV3Message(dataBytes);
+        return new IncommingEV3Command(dataBytes);
     }
 
     @Override
     public S process(T event) {
-        EV3Message[] messages = translator.convertEventToMessages(event);
-        EV3Message resultMessage = sendCommand(messages);
+        EV3Command[] messages = translator.convertEventToMessages(event);
+        EV3Command resultMessage = sendCommand(messages);
         S result = translator.convertMessageToResult(resultMessage, event);
         return result;
     }

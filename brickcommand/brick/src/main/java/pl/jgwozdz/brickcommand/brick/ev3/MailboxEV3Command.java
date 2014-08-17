@@ -4,13 +4,13 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 
-public abstract class AbstractEV3Message implements EV3Message {
+public abstract class MailboxEV3Command implements EV3Command {
     public static final byte[] secretField = {(byte) 0x81, (byte) 0x9E};
     private final String mailboxName;
     private byte[] allBytes;
     private CounterSequence counterSequence = CounterSequence.getDefault();
 
-    public AbstractEV3Message(String mailboxName) {
+    public MailboxEV3Command(String mailboxName) {
         this.mailboxName = mailboxName;
     }
 

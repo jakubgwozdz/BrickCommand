@@ -1,14 +1,14 @@
 package pl.jgwozdz.brickcommand.car;
 
-import pl.jgwozdz.brickcommand.brick.ev3.EV3Message;
-import pl.jgwozdz.brickcommand.brick.ev3.EV3MessageTranslator;
+import pl.jgwozdz.brickcommand.brick.ev3.EV3Command;
+import pl.jgwozdz.brickcommand.brick.ev3.EV3CommandTranslator;
 import pl.jgwozdz.brickcommand.brick.ev3.MessagesBuilder;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CarTranslator implements EV3MessageTranslator<CarEvent, CarEvent> {
+public class CarTranslator implements EV3CommandTranslator<CarEvent, CarEvent> {
 
     private static Map<Class<? extends CarEvent>, String> commands = Collections.unmodifiableMap(new HashMap<Class<? extends CarEvent>, String>() {
         {
@@ -18,16 +18,16 @@ public class CarTranslator implements EV3MessageTranslator<CarEvent, CarEvent> {
     });
 
     @Override
-    public CarEvent convertMessageToResult(EV3Message ev3Message, CarEvent requestEvent) {
+    public CarEvent convertMessageToResult(EV3Command ev3Command, CarEvent requestEvent) {
         if (requestEvent instanceof RotationEvent) {
-            return ev3Message::getNumericData;
+            return ev3Command::getNumericData;
         } else {
             return null;
         }
     }
 
     @Override
-    public EV3Message[] convertEventToMessages(CarEvent event) {
+    public EV3Command[] convertEventToMessages(CarEvent event) {
         String command = commands.get(event.getClass());
         System.out.println(command + (event.hasValue() ? "(" + event.getValue() + ")" : "()"));
         if (command == null) throw new UnsupportedOperationException("Darn! Unknown event " + event);

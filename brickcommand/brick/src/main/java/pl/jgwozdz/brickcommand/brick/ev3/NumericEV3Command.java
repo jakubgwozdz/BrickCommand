@@ -3,12 +3,12 @@ package pl.jgwozdz.brickcommand.brick.ev3;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class NumericEV3Message extends AbstractEV3Message {
+public class NumericEV3Command extends MailboxEV3Command {
 
     private final float numericData;
     private byte[] payloadBytes;
 
-    public NumericEV3Message(String mailboxName, float numericData) {
+    public NumericEV3Command(String mailboxName, float numericData) {
         super(mailboxName);
         this.numericData = numericData;
     }
@@ -32,7 +32,7 @@ public class NumericEV3Message extends AbstractEV3Message {
     }
 
     @Override
-    public EV3MessageType getType() {
-        return EV3MessageType.NumericMsg;
+    public EV3CommandType getType() {
+        return EV3CommandType.NumericMsg;
     }
 }

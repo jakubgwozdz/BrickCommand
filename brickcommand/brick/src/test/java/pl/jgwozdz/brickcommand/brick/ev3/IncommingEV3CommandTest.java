@@ -2,7 +2,7 @@ package pl.jgwozdz.brickcommand.brick.ev3;
 
 import org.junit.*;
 
-public class IncommingEV3MessageTest {
+public class IncommingEV3CommandTest {
     byte[] data = {
 //            0x0f, 0x00, // header is ignored
             0x01, 0x00,
@@ -14,7 +14,7 @@ public class IncommingEV3MessageTest {
 
     @Test
     public void testAck() throws Exception {
-        IncommingEV3Message ev3Message = new IncommingEV3Message(data);
+        IncommingEV3Command ev3Message = new IncommingEV3Command(data);
         Assert.assertEquals("Ack", ev3Message.getMailboxName());
         Assert.assertEquals("Ack", ev3Message.getTextData());
     }

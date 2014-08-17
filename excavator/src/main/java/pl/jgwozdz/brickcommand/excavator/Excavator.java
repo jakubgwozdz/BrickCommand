@@ -4,7 +4,7 @@ import net.java.games.input.Component;
 import pl.jgwozdz.brickcommand.brick.Brick;
 import pl.jgwozdz.brickcommand.brick.Device;
 import pl.jgwozdz.brickcommand.brick.bluetooth.bluecove.BluecoveDeviceFactory;
-import pl.jgwozdz.brickcommand.brick.ev3.EV3MessageTranslator;
+import pl.jgwozdz.brickcommand.brick.ev3.EV3CommandTranslator;
 import pl.jgwozdz.brickcommand.controller.BrickController;
 import pl.jgwozdz.brickcommand.controller.ControllerEvent;
 import pl.jgwozdz.brickcommand.controller.joystick.ControllerFactory;
@@ -58,7 +58,7 @@ public class Excavator extends Engine<ExcavatorEvent, ExcavatorEventResult> {
 //        Device device = new MockDeviceFactory().getDevice("Mock");
         Device device = new BluecoveDeviceFactory().getDevice("EV3");
         device.connect();
-        EV3MessageTranslator<ExcavatorEvent, ExcavatorEventResult> translator = new ExcavatorTranslator();
+        EV3CommandTranslator<ExcavatorEvent, ExcavatorEventResult> translator = new ExcavatorTranslator();
         Brick<ExcavatorEvent, ExcavatorEventResult> brick = new ExcavatorEV3(device, translator);
         Excavator excavator = new Excavator(controller, brick);
 
