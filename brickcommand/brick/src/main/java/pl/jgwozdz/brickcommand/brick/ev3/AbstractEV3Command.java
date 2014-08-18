@@ -1,6 +1,11 @@
 package pl.jgwozdz.brickcommand.brick.ev3;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
 public abstract class AbstractEV3Command implements EV3Command {
+
+    private CounterSequence counterSequence = CounterSequence.getDefault();
 
     // todo change to enum
 
@@ -18,8 +23,20 @@ public abstract class AbstractEV3Command implements EV3Command {
 
     public abstract byte getCommandType();
 
+    public abstract byte[] getCommand();
+
     @Override
     public byte[] getAllBytes() {
-        return new byte[0];
+        byte[] command = getCommand();
+        int length = 2 + 2 + 1 + command.length;
+        ByteBuffer buffer = ByteBuffer.allocate(length).order(ByteOrder.LITTLE_ENDIAN)
+                .putShort((short) (length - 2))
+                .putShort(counterSequence.next())
+                .put(getCommandType())
+                .put(getCommand());
+        if (buffer.remaining() != 0) {
+            throw new RuntimeException("Darn! Adding problem, bytes left: " + buffer.remaining());
+        }
+        return buffer.array();
     }
 }

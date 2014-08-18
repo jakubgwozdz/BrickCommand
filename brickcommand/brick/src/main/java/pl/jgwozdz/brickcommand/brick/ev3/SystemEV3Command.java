@@ -1,11 +1,30 @@
 package pl.jgwozdz.brickcommand.brick.ev3;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
 public abstract class SystemEV3Command extends AbstractEV3Command {
 
     @Override
     public byte getCommandType() {
         return SYSTEM_COMMAND_NO_REPLY;
     }
+
+    @Override
+    public byte[] getCommand() {
+        byte[] message = getMessage();
+        int length = 1 + message.length;
+        ByteBuffer buffer = ByteBuffer.allocate(length).order(ByteOrder.LITTLE_ENDIAN)
+                .put(getSystemCommand())
+                .put(getMessage());
+        if (buffer.remaining() != 0) {
+            throw new RuntimeException("Darn! Adding problem, bytes left: " + buffer.remaining());
+        }
+        return buffer.array();
+    }
+
+    public abstract byte[] getMessage();
+
 
     public static final byte BEGIN_DOWNLOAD = (byte) 0x92; //  Begin file down load
     public static final byte CONTINUE_DOWNLOAD = (byte) 0x93; //  Continue file down load
