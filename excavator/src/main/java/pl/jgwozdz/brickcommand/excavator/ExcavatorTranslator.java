@@ -1,14 +1,15 @@
 package pl.jgwozdz.brickcommand.excavator;
 
-import pl.jgwozdz.brickcommand.brick.ev3.EV3Command;
 import pl.jgwozdz.brickcommand.brick.ev3.EV3CommandTranslator;
+import pl.jgwozdz.brickcommand.brick.ev3.IncomingEV3Command;
 import pl.jgwozdz.brickcommand.brick.ev3.MailboxCommandsBuilder;
+import pl.jgwozdz.brickcommand.brick.ev3.MailboxEV3Command;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExcavatorTranslator implements EV3CommandTranslator<ExcavatorEvent, ExcavatorEventResult> {
+public class ExcavatorTranslator implements EV3CommandTranslator<ExcavatorEvent, ExcavatorEventResult, MailboxEV3Command, IncomingEV3Command> {
 
     private static Map<Class<? extends ExcavatorEvent>, Float> multipliers = Collections.unmodifiableMap(new HashMap<Class<? extends ExcavatorEvent>, Float>() {{
         put(RotationEvent.class, 100f);
@@ -28,7 +29,7 @@ public class ExcavatorTranslator implements EV3CommandTranslator<ExcavatorEvent,
     }});
 
     @Override
-    public EV3Command[] convertEventToMessages(ExcavatorEvent event) {
+    public MailboxEV3Command[] convertEventToMessages(ExcavatorEvent event) {
         String command = commands.get(event.getClass());
         System.out.println(command + (event.hasValue() ? "(" + event.getValue() + ")" : "()"));
         if (command == null) throw new UnsupportedOperationException("Darn! Unknown event " + event);
@@ -38,7 +39,7 @@ public class ExcavatorTranslator implements EV3CommandTranslator<ExcavatorEvent,
     }
 
     @Override
-    public ExcavatorEventResult convertMessageToResult(EV3Command ev3Command, ExcavatorEvent requestEvent) {
+    public ExcavatorEventResult convertMessageToResult(IncomingEV3Command ev3Command, ExcavatorEvent requestEvent) {
         return new ExcavatorEventResult();
     }
 }

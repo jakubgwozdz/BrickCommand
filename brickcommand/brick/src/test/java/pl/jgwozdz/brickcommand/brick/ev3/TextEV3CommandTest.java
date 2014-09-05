@@ -16,7 +16,7 @@ public class TextEV3CommandTest {
         short len = buffer.order(ByteOrder.LITTLE_ENDIAN).getShort();
         byte[] data = new byte[len];
         buffer.get(data);
-        MailboxEV3Command output = new IncommingEV3Command(data);
+        MailboxEV3Command output = new IncomingEV3Command(data);
         Assert.assertThat(output.getMailboxName(), is("Mailbox 1"));
         Assert.assertThat(output.getTextData(), is("This is a message"));
     }

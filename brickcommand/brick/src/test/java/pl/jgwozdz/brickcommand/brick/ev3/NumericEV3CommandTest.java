@@ -15,7 +15,7 @@ public class NumericEV3CommandTest {
         short len = buffer.order(ByteOrder.LITTLE_ENDIAN).getShort();
         byte[] data = new byte[len];
         buffer.get(data);
-        MailboxEV3Command output = new IncommingEV3Command(data);
+        MailboxEV3Command output = new IncomingEV3Command(data);
         Assert.assertThat(output.getMailboxName(), CoreMatchers.is("Mailbox 1"));
         Assert.assertThat(output.getNumericData(), CoreMatchers.is(12.5f));
     }

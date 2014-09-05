@@ -17,7 +17,7 @@ public abstract class MailboxEV3Command extends SystemEV3Command {
 
     @Override
     public byte getSystemCommand() {
-        return (byte) 0x9E;
+        return WRITEMAILBOX;
     }
 
     @Override
@@ -52,12 +52,12 @@ public abstract class MailboxEV3Command extends SystemEV3Command {
      * If it is an outcoming NumericMessage, returns it's string representation,
      * if an incoming NumericMessage, only String representation of bytes used to encode a float.
      */
-    abstract String getTextData();
+    abstract public String getTextData();
 
     /**
      * @return a number carried in this messages or Float.NaN if it is a String.
      */
-    abstract float getNumericData();
+    abstract public float getNumericData();
 
     /**
      * @return the type of the message

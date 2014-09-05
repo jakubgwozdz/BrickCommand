@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-public class IncommingEV3Command extends MailboxEV3Command {
+public class IncomingEV3Command extends MailboxEV3Command {
 
     private final byte[] dataBytes;
     private byte[] allBytes;
@@ -16,7 +16,7 @@ public class IncommingEV3Command extends MailboxEV3Command {
     private short counter;
     private byte[] secretBytes;
 
-    public IncommingEV3Command(byte[] dataBytes) {
+    public IncomingEV3Command(byte[] dataBytes) {
         super(null);
         this.dataBytes = Arrays.copyOf(dataBytes, dataBytes.length);
     }

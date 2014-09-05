@@ -15,6 +15,6 @@ public class RotationEvent implements CarEvent {
 
     @Override
     public Float getValue() {
-        return value * 500f;
+        return value * -100f;
     }
 }

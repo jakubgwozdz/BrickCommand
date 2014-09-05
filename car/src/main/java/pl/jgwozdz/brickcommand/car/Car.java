@@ -5,7 +5,6 @@ import pl.jgwozdz.brickcommand.brick.Brick;
 import pl.jgwozdz.brickcommand.brick.Device;
 import pl.jgwozdz.brickcommand.brick.bluetooth.bluecove.BluecoveDeviceFactory;
 import pl.jgwozdz.brickcommand.brick.ev3.EV3;
-import pl.jgwozdz.brickcommand.brick.ev3.EV3CommandTranslator;
 import pl.jgwozdz.brickcommand.controller.BrickController;
 import pl.jgwozdz.brickcommand.controller.ControllerEvent;
 import pl.jgwozdz.brickcommand.controller.joystick.ControllerFactory;
@@ -66,14 +65,14 @@ public class Car extends Engine<CarEvent, CarEvent> {
         Device device = new BluecoveDeviceFactory().getDevice("EV3");
         device.connect();
 
-        EV3CommandTranslator<CarEvent, CarEvent> translator = new CarTranslator();
+        CarTranslator translator = new CarTranslator();
         Brick<CarEvent, CarEvent> brick = new EV3<>(device, translator);
-        Car excavator = new Car(controller, brick);
+        Car car = new Car(controller, brick);
 
         // run the program
-        excavator.startEngine();
+        car.startEngine();
         System.in.read(); // wait for keypress
-        excavator.stopEngine();
+        car.stopEngine();
     }
 
 }

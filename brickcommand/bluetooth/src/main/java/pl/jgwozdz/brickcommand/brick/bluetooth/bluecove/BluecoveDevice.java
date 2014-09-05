@@ -1,6 +1,7 @@
 package pl.jgwozdz.brickcommand.brick.bluetooth.bluecove;
 
 import pl.jgwozdz.brickcommand.brick.Device;
+import pl.jgwozdz.brickcommand.brick.helper.HexDump;
 
 import javax.bluetooth.RemoteDevice;
 import javax.bluetooth.ServiceRecord;
@@ -54,6 +55,7 @@ public class BluecoveDevice implements Device {
     @Override
     public void writeMessageBytes(byte[] rawMessage) {
         try {
+            System.out.println(HexDump.formatBytes(rawMessage));
             outputStream.write(rawMessage);
         } catch (IOException e) {
             throw new RuntimeException("Darn! Cannot send message!", e);
