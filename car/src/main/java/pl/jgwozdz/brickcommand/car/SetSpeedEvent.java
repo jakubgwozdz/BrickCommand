@@ -15,6 +15,6 @@ public class SetSpeedEvent implements CarEvent {
 
     @Override
     public Float getValue() {
-        return value * -100f;
+        return value * 100f;
     }
 }
