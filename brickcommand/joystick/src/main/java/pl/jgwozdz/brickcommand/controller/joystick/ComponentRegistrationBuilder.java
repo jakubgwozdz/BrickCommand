@@ -19,4 +19,9 @@ public class ComponentRegistrationBuilder {
         registration.setActivationOnValue(value);
         return this;
     }
+
+    public ComponentRegistrationBuilder withNearZeroZero(float value) {
+        registration.setNearZeroZero(value);
+        return this;
+    }
 }

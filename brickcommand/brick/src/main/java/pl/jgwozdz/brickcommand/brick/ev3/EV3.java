@@ -28,7 +28,8 @@ public class EV3<T extends BrickEvent, S extends BrickEventResult, T3 extends EV
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return null;//readIncomingCommand();
+        return readIncomingCommand();
+//        return null;//readIncomingCommand();
     }
 
     private S3 readIncomingCommand() {

@@ -16,6 +16,7 @@
         <module>bluetooth</module>
         <module>joystick</module>
         <module>engine</module>
+        <module>../patchw3rk</module>
     </modules>
 
     <dependencyManagement>

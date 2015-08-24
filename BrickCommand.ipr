@@ -1057,21 +1057,71 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="api" />
-        <module name="bluetooth" />
-        <module name="brick" />
         <module name="brickcommand-api" />
         <module name="brickcommand-bluetooth" />
         <module name="brickcommand-engine" />
         <module name="brickcommand-joystick" />
         <module name="directMessenger" />
+      </profile>
+      <profile default="false" name="Annotation profile for engine" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
         <module name="engine" />
-        <module name="excavator" />
+      </profile>
+      <profile default="false" name="Annotation profile for bluetooth" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="bluetooth" />
+      </profile>
+      <profile default="false" name="Annotation profile for brick" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="brick" />
+      </profile>
+      <profile default="false" name="Annotation profile for joystick" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
         <module name="joystick" />
+      </profile>
+      <profile default="false" name="Annotation profile for api" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="api" />
+      </profile>
+      <profile default="false" name="Annotation profile for excavator" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="excavator" />
+      </profile>
+      <profile default="false" name="Annotation profile for patchw3rk" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="patchw3rk" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="brickcommand-parent" target="1.8" />
+      <module name="api" target="1.8" />
+      <module name="bluetooth" target="1.8" />
+      <module name="brick" target="1.8" />
+      <module name="brickcommand-parent" target="1.5" />
+      <module name="engine" target="1.8" />
+      <module name="excavator" target="1.8" />
+      <module name="joystick" target="1.8" />
+      <module name="patchw3rk" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
@@ -1089,6 +1139,7 @@
     <file url="file://$PROJECT_DIR$/car" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/directMessenger" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/excavator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patchw3rk" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
@@ -1100,24 +1151,15 @@
     <option name="excludeFilter" value="" />
   </component>
   <component name="InspectionProjectProfileManager">
-    <profiles>
-      <profile version="1.0" is_locked="false">
-        <option name="myName" value="Project Default" />
-        <option name="myLocal" value="false" />
-        <inspection_tool class="IgnoreResultOfCall" enabled="true" level="WEAK WARNING" enabled_by_default="true">
-          <option name="m_reportAllNonLibraryCalls" value="false" />
-          <option name="callCheckString" value="java.io.InputStream,read,java.io.InputStream,skip,java.lang.StringBuffer,toString,java.lang.StringBuilder,toString,java.lang.String,.*,java.math.BigInteger,.*,java.math.BigDecimal,.*,java.net.InetAddress,.*,java.io.File,.*,java.lang.Object,equals|hashCode" />
-        </inspection_tool>
-        <inspection_tool class="PointlessBitwiseExpression" enabled="true" level="WARNING" enabled_by_default="true">
-          <option name="m_ignoreExpressionsContainingConstants" value="true" />
-        </inspection_tool>
-        <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
-          <option name="processCode" value="true" />
-          <option name="processLiterals" value="true" />
-          <option name="processComments" value="true" />
-        </inspection_tool>
-      </profile>
-    </profiles>
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+      <option name="myLocal" value="true" />
+      <inspection_tool class="AndroidLintNewApi" enabled="false" level="ERROR" enabled_by_default="false" />
+      <inspection_tool class="LoggerInitializedWithForeignClass" enabled="false" level="WARNING" enabled_by_default="false">
+        <option name="loggerClassName" value="org.apache.log4j.Logger,org.slf4j.LoggerFactory,org.apache.commons.logging.LogFactory,java.util.logging.Logger" />
+        <option name="loggerFactoryMethodName" value="getLogger,getLogger,getLog,getLogger" />
+      </inspection_tool>
+    </profile>
     <option name="PROJECT_PROFILE" value="Project Default" />
     <option name="USE_PROJECT_PROFILE" value="true" />
     <version value="1.0" />
@@ -1275,6 +1317,7 @@
       <module fileurl="file://$PROJECT_DIR$/brickcommand/engine/engine.iml" filepath="$PROJECT_DIR$/brickcommand/engine/engine.iml" />
       <module fileurl="file://$PROJECT_DIR$/excavator/excavator.iml" filepath="$PROJECT_DIR$/excavator/excavator.iml" />
       <module fileurl="file://$PROJECT_DIR$/brickcommand/joystick/joystick.iml" filepath="$PROJECT_DIR$/brickcommand/joystick/joystick.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patchw3rk/patchw3rk.iml" filepath="$PROJECT_DIR$/patchw3rk/patchw3rk.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
@@ -1343,6 +1386,14 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/applet/src" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/coreAPI/build/src/java" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/coreAPI/src/java" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/OSX/src/java" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/awt/src" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/linux/src/java" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/windows/src/java" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar!/plugins/wintab/src/java" />
       </SOURCES>
     </library>
     <library name="Maven: net.java.jutils:jutils:1.0.0">
@@ -1391,4 +1442,3 @@
     </library>
   </component>
 </project>
-
