@@ -13,7 +13,7 @@ public class Patchw3rkTranslator implements EV3CommandTranslator<Patchw3rkEvent,
 
     private static Map<Class<? extends Patchw3rkEvent>, Float> multipliers = Collections.unmodifiableMap(new HashMap<Class<? extends Patchw3rkEvent>, Float>() {{
         put(SpeedEvent.class, -100f);
-        put(AngleEvent.class, 180f);
+        put(AngleEvent.class, 50f);
         put(PitchEvent.class, -100f);
         put(YawEvent.class, -100f);
         put(FireEvent.class, 1f);

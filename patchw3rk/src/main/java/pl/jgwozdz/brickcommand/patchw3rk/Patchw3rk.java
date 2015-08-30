@@ -68,7 +68,7 @@ public class Patchw3rk extends Engine<Patchw3rkEvent, Patchw3rkEventResult> {
                 speed.set(joystickEvent.value);
             }
             if (id == RZ) {
-                yaw.set(joystickEvent.value);
+//                yaw.set(joystickEvent.value);
             }
             if (id == POV) {
                 if (joystickEvent.value == UP || joystickEvent.value == UP_LEFT || joystickEvent.value == UP_RIGHT)
@@ -77,6 +77,12 @@ public class Patchw3rk extends Engine<Patchw3rkEvent, Patchw3rkEventResult> {
                     pitch.set(-1f);
                 if (joystickEvent.value == OFF)
                     pitch.set(0f);
+                if (joystickEvent.value == LEFT || joystickEvent.value == UP_LEFT || joystickEvent.value == DOWN_LEFT)
+                    yaw.set(-1f);
+                if (joystickEvent.value == RIGHT || joystickEvent.value == UP_RIGHT || joystickEvent.value == DOWN_RIGHT)
+                    yaw.set(1f);
+                if (joystickEvent.value == OFF)
+                    yaw.set(0f);
             }
             if (id == _0 && joystickEvent.value == 1) {
                 fire.set(0f);
